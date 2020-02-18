@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 
 /**
  * Presents how multiple steps flow could be implemented.
@@ -29,17 +30,17 @@ import androidx.navigation.Navigation
 class FlowStepFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
 
-        val flowStepNumber = arguments?.getInt("flowStepNumber")
+//        val flowStepNumber = arguments?.getInt("flowStepNumber")
 
         // TODO STEP 8 - Use type-safe arguments - remove previous line!
-//        val safeArgs: FlowStepFragmentArgs by navArgs()
-//        val flowStepNumber = safeArgs.flowStepNumber
+        val safeArgs: FlowStepFragmentArgs by navArgs()
+        val flowStepNumber = safeArgs.flowStepNumber
         // TODO END STEP 8
 
         return when (flowStepNumber) {
@@ -55,7 +56,7 @@ class FlowStepFragment : Fragment() {
         * 遷移先にactionを指定できる。actionはエディターに矢印が出るし、アニメーション設定も可能
         * */
         view.findViewById<View>(R.id.next_button).setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.next_action)
+                Navigation.createNavigateOnClickListener(R.id.next_action)
         )
     }
 }

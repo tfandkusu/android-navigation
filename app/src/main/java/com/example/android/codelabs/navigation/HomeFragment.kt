@@ -56,7 +56,6 @@ class HomeFragment : Fragment() {
         }
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
         button?.setOnClickListener {
-
             findNavController().navigate(R.id.flow_step_one_dest
                     /*ここではnavigation.xmlで定義したFragmentのIDまたはActionのIDを指定できる*/, null,
                     options/*アニメーションを指定できる*/)
@@ -77,11 +76,14 @@ class HomeFragment : Fragment() {
 //        }
         //TODO END STEP 6
 
-        //TODO STEP 7.2 - Update the OnClickListener to navigate using an action
-//        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
-//                Navigation.createNavigateOnClickListener(R.id.next_action, null)
-//        )
-        //TODO END STEP 7.2
+        // STEP 7.2 - Update the OnClickListener to navigate using an action
+        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener {
+            val flowStepNumberArg = 1
+            // このメソッド名はXMLのactionのid名と同じになる
+            val action = HomeFragmentDirections.nextAction(flowStepNumberArg)
+            findNavController().navigate(action)
+        }
+        //END STEP 7.2
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
