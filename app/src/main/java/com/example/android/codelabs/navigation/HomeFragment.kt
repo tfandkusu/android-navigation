@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 
 /**
  * Fragment used to show how to navigate to another destination
@@ -41,11 +42,24 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // STEP 5 - Set an OnClickListener, using Navigation.createNavigateOnClickListener()
+        val options = navOptions {
+            anim {
+                // フラグメントを始めるとき
+                enter = R.anim.slide_in_right
+                // このフラグメントが始まった結果終わるフラグメントの撤退方法
+                exit = R.anim.slide_out_left
+                // このフラグメントが終わるので前のフラグメントの再入場の方法
+                popEnter = R.anim.slide_in_left
+                // このフラグメントが終わるとき
+                popExit = R.anim.slide_out_right
+            }
+        }
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
         button?.setOnClickListener {
 
             findNavController().navigate(R.id.flow_step_one_dest
-                    /*ここではnavigation.xmlで定義したFragmentのIDまたはActionのIDを指定できる*/, null)
+                    /*ここではnavigation.xmlで定義したFragmentのIDまたはActionのIDを指定できる*/, null,
+                    options/*アニメーションを指定できる*/)
         }
         //TODO END STEP 5
 
