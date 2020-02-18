@@ -17,6 +17,7 @@
 package com.example.android.codelabs.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,12 @@ import androidx.navigation.fragment.navArgs
  * Presents how multiple steps flow could be implemented.
  */
 class FlowStepFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val safeArgs: FlowStepFragmentArgs by navArgs()
+        Log.d("tfandkusu", "FlowStepFragment#onCreate " + safeArgs.flowStepNumber)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -58,5 +65,11 @@ class FlowStepFragment : Fragment() {
         view.findViewById<View>(R.id.next_button).setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.next_action)
         )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val safeArgs: FlowStepFragmentArgs by navArgs()
+        Log.d("tfandkusu", "FlowStepFragment#onDestroy "  + safeArgs.flowStepNumber)
     }
 }

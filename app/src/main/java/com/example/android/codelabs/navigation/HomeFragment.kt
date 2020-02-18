@@ -17,6 +17,7 @@
 package com.example.android.codelabs.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import androidx.fragment.app.Fragment
@@ -29,6 +30,12 @@ import androidx.navigation.navOptions
  * Fragment used to show how to navigate to another destination
  */
 class HomeFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("tfandkusu", "HomeFragment#onCreate")
+    }
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -88,5 +95,10 @@ class HomeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("tfandkusu", "HomeFragment#onDestroy")
     }
 }
