@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2018 The Android Open Source Project
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -12,20 +11,19 @@
   ~ limitations under the License.
   -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/primary">
-        <item
-            android:id="@id/home_dest"
-            android:icon="@drawable/ic_home"
-            android:title="@string/home" />
-        <item
-            android:id="@id/deeplink_dest"
-            android:icon="@drawable/ic_android"
-            android:title="@string/deeplink" />
-    </group>
-    <!-- TODO STEP 9.8 - Add a menu item for settings_fragment -->
-    <!--<item-->
-        <!--android:id="@+id/settings_dest"-->
-        <!--android:icon="@drawable/ic_settings"-->
-        <!--android:title="@string/settings" />-->
-    <!-- TODO END STEP 9.8 -->
+    <!-- こちらもIDが同じところに飛ぶ -->
+    <item
+        android:id="@id/home_dest"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
+        android:id="@id/deeplink_dest"
+        android:icon="@drawable/ic_android"
+        android:title="@string/deeplink" />
+    <!-- STEP 9.8 - Add a menu item for settings_fragment -->
+    <item
+        android:id="@+id/settings_dest"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+    <!-- END STEP 9.8 -->
 </menu>
