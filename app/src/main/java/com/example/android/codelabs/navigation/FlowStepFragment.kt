@@ -51,6 +51,9 @@ class FlowStepFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
+        * 遷移先にactionを指定できる。actionはエディターに矢印が出るし、アニメーション設定も可能
+        * */
         view.findViewById<View>(R.id.next_button).setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.next_action)
         )
