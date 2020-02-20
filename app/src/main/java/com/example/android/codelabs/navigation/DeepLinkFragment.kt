@@ -33,6 +33,8 @@ import androidx.navigation.fragment.findNavController
 
 /**
  * Fragment used to show how to deep link to a destination
+ * ディープリンクで飛んだ後のバックキーの挙動はグラフのapp:startDestinationに一致する
+ * バックキーを2段にしたかったらネストしたナビゲーショングラフを作る
  */
 class DeepLinkFragment : Fragment() {
     override fun onCreateView(
